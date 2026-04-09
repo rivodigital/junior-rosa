@@ -1,0 +1,76 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
+import { SITE_CONFIG } from "@/lib/constants";
+import { MapPin, Clock, Zap } from "lucide-react";
+
+export function CtaBannerSection() {
+  return (
+    <section className="py-24 md:py-32 bg-brand-dark border-y border-white/5 relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-white/[0.02] rounded-full blur-[200px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 md:px-12 max-w-[1200px] relative z-10">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="hidden md:block w-full h-[550px] bg-brand-gray rounded-2xl overflow-hidden relative">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: "url('/images/cta-banner.webp')",
+              }}
+            />
+          </div>
+
+          <div className="space-y-8">
+            <motion.h2
+              className="text-[36px] md:text-[48px] lg:text-[56px] font-bold leading-[1.05] tracking-tight text-brand-white"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              Seu concorrente já está investindo em presença digital.{" "}
+              <span className="text-brand-muted">E você?</span>
+            </motion.h2>
+
+            <p className="text-brand-muted text-lg leading-relaxed max-w-[450px]">
+              Do briefing à entrega em semanas, não meses. Processo transparente,
+              comunicação direta e resultado desde o primeiro dia no ar.
+            </p>
+
+            <div className="flex flex-col gap-4 text-sm">
+              <div className="flex items-center gap-3 text-brand-muted">
+                <Zap className="w-4 h-4 text-brand-white" />
+                <span>Início imediato após aprovação</span>
+              </div>
+              <div className="flex items-center gap-3 text-brand-muted">
+                <Clock className="w-4 h-4 text-brand-white" />
+                <span>Entrega em 2 a 6 semanas</span>
+              </div>
+              <div className="flex items-center gap-3 text-brand-muted">
+                <MapPin className="w-4 h-4 text-brand-white" />
+                <span>{SITE_CONFIG.address} — Atendimento remoto para todo Brasil</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button href={SITE_CONFIG.whatsapp} variant="outline" className="px-10 py-4">
+                Falar no WhatsApp
+              </Button>
+              <Button href="#contato" variant="link">
+                Preencher briefing
+              </Button>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
