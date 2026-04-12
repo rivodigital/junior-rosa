@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { SITE_CONFIG } from "@/lib/constants";
-import { MapPin, Clock, Zap } from "lucide-react";
+import { MapPin, MessageCircle, Zap } from "lucide-react";
 
 export function CtaBannerSection() {
   return (
@@ -36,13 +36,12 @@ export function CtaBannerSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Seu concorrente já está investindo em presença digital.{" "}
-              <span className="text-brand-muted">E você?</span>
+              Enquanto você pensa, seu concorrente{" "}
+              <span className="text-brand-muted">já contratou.</span>
             </motion.h2>
 
             <p className="text-brand-muted text-lg leading-relaxed max-w-[450px]">
-              Do briefing à entrega em semanas, não meses. Processo transparente,
-              comunicação direta e resultado desde o primeiro dia no ar.
+              Preencha o briefing em 2 minutos. Receba uma proposta personalizada em até 24h. Sem compromisso.
             </p>
 
             <div className="flex flex-col gap-4 text-sm">
@@ -51,12 +50,12 @@ export function CtaBannerSection() {
                 <span>Início imediato após aprovação</span>
               </div>
               <div className="flex items-center gap-3 text-brand-muted">
-                <Clock className="w-4 h-4 text-brand-white" />
-                <span>Entrega em 2 a 6 semanas</span>
+                <MessageCircle className="w-4 h-4 text-brand-white" />
+                <span>Você fala direto comigo — sem atendente, sem bot</span>
               </div>
               <div className="flex items-center gap-3 text-brand-muted">
                 <MapPin className="w-4 h-4 text-brand-white" />
-                <span>{SITE_CONFIG.address} — Atendimento remoto para todo Brasil</span>
+                <span>Joinville, SC — atendimento remoto para todo Brasil</span>
               </div>
             </div>
 

@@ -5,16 +5,41 @@ export type Project = {
   tags: string[];
   image: string;
   result?: string;
+  gallery?: string[];
 };
 
 export const PROJECTS: Project[] = [
   {
     id: "zr3-um-novo-jeito-de-morar",
-    name: "Um Novo Jeito de Morar",
-    category: "Campanha de Lançamento",
-    tags: ["Landing Page", "Branding", "Tráfego"],
-    image: "/images/zr3-um-novo-jeito-de-morar.jpg",
-    result: "ZR3 Empreendimentos",
+    name: "Residencial Dualité",
+    category: "ZR3 Empreendimentos",
+    tags: ["LANDING PAGE", "BRANDING", "TRÁFEGO"],
+    image: "/images/Projetos/ZR3 Dualité/dualite_01.jpg",
+    result: "70% VENDAS NO LANÇAMENTO",
+    gallery: [
+      "/images/Projetos/ZR3 Dualité/dualite_07.jpg",
+      "/images/Projetos/ZR3 Dualité/dualite_01.jpg",
+      "/images/Projetos/ZR3 Dualité/dualite_02.jpg",
+      "/images/Projetos/ZR3 Dualité/dualite_03.jpg",
+      "/images/Projetos/ZR3 Dualité/dualite_04.jpg",
+      "/images/Projetos/ZR3 Dualité/dualite_05.jpg",
+      "/images/Projetos/ZR3 Dualité/dualite_06.jpg",
+    ],
+  },
+  {
+    id: "real-hortifruti",
+    name: "Real Hortifruti",
+    category: "Branding & Marketing",
+    tags: ["BRANDING", "TRÁFEGO PAGO", "CONSULTORIA"],
+    image: "/images/Projetos/Real/real_01.jpg",
+    result: "Top hortifruti da cidade em 3 meses",
+    gallery: [
+      "/images/Projetos/Real/real_01.jpg",
+      "/images/Projetos/Real/real_02.jpg",
+      "/images/Projetos/Real/real_03.jpg",
+      "/images/Projetos/Real/real_04.jpg",
+      "/images/Projetos/Real/real_05.jpg",
+    ],
   },
   {
     id: "beta",

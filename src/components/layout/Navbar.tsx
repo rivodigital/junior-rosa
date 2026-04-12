@@ -19,7 +19,7 @@ export function Navbar() {
     <motion.nav
       className={`fixed top-0 w-full z-50 transition-all duration-500 font-sans ${
         isScrolled
-          ? "bg-brand-black/80 backdrop-blur-2xl border-b border-white/[0.06] py-4"
+          ? "bg-brand-black/80 backdrop-blur-2xl py-4"
           : "bg-transparent py-6"
       }`}
       initial={{ opacity: 0, y: -20 }}
@@ -47,7 +47,7 @@ export function Navbar() {
         <div className="hidden md:block">
           <motion.a
             href="#contato"
-            className="border border-brand-white text-brand-white px-7 py-2.5 rounded-full font-bold text-[13px] uppercase tracking-[0.05em] hover:bg-brand-white hover:text-brand-black transition-all duration-300"
+            className="border border-brand-white text-brand-white px-7 py-2.5 rounded-xl font-bold text-[13px] uppercase tracking-[0.05em] hover:bg-brand-white hover:text-brand-black transition-all duration-300"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -104,7 +104,7 @@ export function Navbar() {
               <motion.a
                 href="#contato"
                 onClick={() => setMobileMenuOpen(false)}
-                className="border border-brand-white text-brand-white px-8 py-4 rounded-full font-bold text-[14px] uppercase tracking-[0.05em] text-center hover:bg-brand-white hover:text-brand-black transition-all"
+                className="border border-brand-white text-brand-white px-8 py-4 rounded-xl font-bold text-[14px] uppercase tracking-[0.05em] text-center hover:bg-brand-white hover:text-brand-black transition-all"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.5 }}

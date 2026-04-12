@@ -8,7 +8,7 @@ import { PROJECTS } from "@/data/projects";
 
 export function PortfolioSection() {
   return (
-    <section id="portfolio" className="py-24 md:py-40 bg-brand-black">
+    <section id="portfolio" className="py-24 md:py-40 bg-brand-black border-t border-white/[0.06]">
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

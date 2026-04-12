@@ -10,7 +10,7 @@ export function Button({ variant = "outline", children, href, className = "", ..
   const baseClasses = "transition-all duration-300 ease-in-out inline-flex items-center justify-center";
   
   const variants = {
-    outline: "border border-brand-white bg-transparent text-brand-white text-[14px] font-medium uppercase tracking-[0.05em] px-[32px] py-[14px] hover:bg-brand-white hover:text-brand-black",
+    outline: "rounded-xl border border-brand-white bg-transparent text-brand-white text-[14px] font-medium uppercase tracking-[0.05em] px-[32px] py-[14px] hover:bg-brand-white hover:text-brand-black",
     link: "text-brand-white text-base md:text-lg font-medium hover:opacity-70 group",
   };
 

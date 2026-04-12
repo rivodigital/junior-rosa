@@ -82,7 +82,7 @@ export function MultiStepForm() {
                   rows={2}
                   value={formData.objective}
                   onChange={e => setFormData({...formData, objective: e.target.value})}
-                  className="w-full bg-brand-dark border border-white/10 rounded-lg p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors resize-none"
+                  className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors resize-none"
                   placeholder="Ex: Aumentar vendas, mudar posicionamento..."
                 />
               </div>
@@ -92,7 +92,7 @@ export function MultiStepForm() {
                   required
                   value={formData.deadline}
                   onChange={e => setFormData({...formData, deadline: e.target.value})}
-                  className="w-full bg-brand-dark border border-white/10 rounded-lg p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors"
+                  className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors"
                 >
                   <option value="">Selecione uma opção</option>
                   <option value="urgente">O quanto antes (Até 1 mês)</option>
@@ -106,7 +106,7 @@ export function MultiStepForm() {
                   rows={2}
                   value={formData.details}
                   onChange={e => setFormData({...formData, details: e.target.value})}
-                  className="w-full bg-brand-dark border border-white/10 rounded-lg p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors resize-none"
+                  className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors resize-none"
                   placeholder="Alguma restrição ou ideia específica?"
                 />
               </div>
@@ -124,7 +124,7 @@ export function MultiStepForm() {
                     type="text" required
                     value={formData.name}
                     onChange={e => setFormData({...formData, name: e.target.value})}
-                    className="w-full bg-brand-dark border border-white/10 rounded-lg p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors"
+                    className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors"
                   />
                </div>
                <div>
@@ -133,7 +133,7 @@ export function MultiStepForm() {
                     type="email" required
                     value={formData.email}
                     onChange={e => setFormData({...formData, email: e.target.value})}
-                    className="w-full bg-brand-dark border border-white/10 rounded-lg p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors"
+                    className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors"
                   />
                </div>
                <div>
@@ -142,7 +142,7 @@ export function MultiStepForm() {
                     type="tel" required
                     value={formData.whatsapp}
                     onChange={e => setFormData({...formData, whatsapp: e.target.value})}
-                    className="w-full bg-brand-dark border border-white/10 rounded-lg p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors"
+                    className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors"
                   />
                </div>
              </div>

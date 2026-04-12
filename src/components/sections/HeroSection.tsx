@@ -211,62 +211,31 @@ export function HeroSection() {
                 className="h-px w-12 bg-brand-accent origin-left"
               />
               <SectionLabel className="!text-brand-accent">
-                Designer e estrategista digital.
+                Do briefing ao resultado. Sem agência, sem ruído.
               </SectionLabel>
             </motion.div>
 
             {/* Main headline with clip-path reveal */}
-            <div className="overflow-hidden mb-8">
+            <div className="overflow-hidden mb-6 max-w-[640px]">
               <motion.h1
                 variants={clipReveal}
-                className="text-[clamp(48px,8vw,110px)] font-bold leading-[0.95] tracking-[-0.04em] text-brand-white"
+                className="text-[clamp(34px,4.4vw,60px)] font-semibold leading-[1.05] tracking-[-0.025em] text-brand-white"
               >
-                Crio design <br className="hidden md:block" />
-                <motion.span
-                  className="inline-block text-brand-white/60 italic font-light tracking-[-0.02em]"
-                  animate={{ opacity: [0.5, 0.7, 0.5] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  e estratégia
-                </motion.span>
-                <br className="hidden md:block" />
-                que geram <br className="hidden md:block" />
-                <span className="relative inline-block">
-                  resultado
-                  <motion.span
-                    className="absolute bottom-[0.1em] left-0 h-[3px] bg-brand-white/60 origin-left"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 1.5, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
-                    style={{ width: "100%" }}
-                  />
+                Sites e landing pages que geram{" "}
+                <span className="text-brand-white/55 font-light italic">
+                  resultado real
                 </span>
-                <motion.span
-                  className="inline-block text-brand-white/50 ml-2"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 2.2 }}
-                >
-                  .
-                </motion.span>
+                .
               </motion.h1>
             </div>
 
             {/* Subtitle with staggered word reveal */}
             <motion.p
               variants={slideUp}
-              className="text-[18px] md:text-[22px] font-light text-brand-muted max-w-[550px] mb-10 leading-[1.6]"
+              className="text-[16px] md:text-[18px] font-light text-brand-muted max-w-[520px] mb-10 leading-[1.6]"
             >
-              Para quem entende que presença digital não é um mero custo — é a
-              mais severa{" "}
-              <motion.span
-                className="text-brand-white font-medium inline-block"
-                animate={{ opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              >
-                vantagem competitiva
-              </motion.span>{" "}
-              do mercado.
+              Sou Junior Rosa, fundador da RIVO Stúdio. Seu próximo site não
+              vai ser só bonito — vai fechar negócios enquanto você dorme.
             </motion.p>
 
             {/* CTA with dramatic entrance */}
@@ -292,7 +261,7 @@ export function HeroSection() {
                 {[
                   { label: "BR", delay: 0 },
                   { label: "500+", delay: 0.1 },
-                  { label: "Pro", delay: 0.2 },
+                  { label: "18a", delay: 0.2 },
                 ].map((badge) => (
                   <motion.div
                     key={badge.label}
@@ -410,16 +379,16 @@ export function HeroSection() {
               whileHover={{ scale: 1.08 }}
             >
               <span className="block text-[10px] uppercase font-bold text-brand-muted tracking-[0.2em] mb-1">
-                Especialidade
+                Resultado comprovado
               </span>
               <span className="block text-[16px] text-brand-white font-medium">
-                Design de Alta Categoria
+                R$480k gerados em 90 dias
               </span>
             </motion.div>
 
             {/* Floating Glass Badge 2 */}
             <motion.div
-              className="absolute -right-4 md:-right-12 bottom-[12%] bg-brand-black/50 border border-brand-white/[0.06] backdrop-blur-2xl py-4 px-8 rounded-full shadow-2xl"
+              className="absolute right-0 md:right-4 bottom-[12%] bg-brand-black/50 border border-brand-white/[0.06] backdrop-blur-2xl py-4 px-8 rounded-full shadow-2xl"
               initial={{ opacity: 0, x: 50, rotateY: 20 }}
               animate={{
                 opacity: 1,

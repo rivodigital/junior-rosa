@@ -35,10 +35,10 @@ function AnimatedCounter({
 }
 
 const STATS = [
-  { value: 500, suffix: "+", label: "Projetos entregues" },
-  { value: 3, suffix: "", label: "Países atendidos" },
-  { value: 2, suffix: "M+", label: "", prefix: "R$" },
-  { value: 18, suffix: "+", label: "Anos no mercado" },
+  { value: 500, suffix: "+", label: "PROJETOS ENTREGUES" },
+  { value: 50, suffix: "M+", label: "EM VENDAS GERADAS", prefix: "R$" },
+  { value: 280, suffix: "%", label: "CONVERSÃO MÉDIA", prefix: "+" },
+  { value: 18, suffix: "+", label: "ANOS NO MERCADO" },
 ];
 
 export function IntroSection() {
@@ -54,7 +54,7 @@ export function IntroSection() {
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <SectionLabel>02 — Por que existimos</SectionLabel>
+          <SectionLabel>02 — Por que me contratar</SectionLabel>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mt-10 items-center">
@@ -65,19 +65,19 @@ export function IntroSection() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h2 className="text-[26px] md:text-[34px] lg:text-[42px] font-light leading-[1.35] text-brand-white mb-8">
-              A maioria dos negócios{" "}
-              <span className="text-brand-muted">perde dinheiro</span> com sites
-              que não foram pensados para converter.{" "}
-              <span className="font-semibold">
-                Eu entro antes da primeira linha de código
-              </span>{" "}
-              — na estratégia, no posicionamento e no design que transforma
-              visitante em cliente.
+            <h2 className="text-[26px] md:text-[34px] lg:text-[42px] font-light leading-[1.15] tracking-[-0.02em] text-brand-white mb-8">
+              Seu site deveria estar{" "}
+              <span className="font-semibold">vendendo agora</span>.
             </h2>
-            <p className="text-brand-muted text-lg md:text-xl leading-relaxed mb-10 max-w-[520px]">
-              Cada pixel com intenção. Cada página com propósito. O resultado é
-              um ativo digital que trabalha pelo seu negócio 24 horas por dia.
+            <p className="text-brand-muted text-base md:text-lg leading-relaxed mb-6 max-w-[560px]">
+              A maioria dos negócios perde dinheiro com sites que não foram
+              pensados para converter. Eu entro antes da primeira linha de
+              código — na estratégia, no posicionamento e no design que
+              transforma visitante em cliente.
+            </p>
+            <p className="text-brand-muted/80 text-sm md:text-base leading-relaxed mb-10 max-w-[520px]">
+              Sem equipe intermediária, sem telefone sem fio. Você fala direto
+              com quem desenha e desenvolve.
             </p>
             <Button variant="link" href="#contato">
               Quero um site que vende
@@ -113,7 +113,7 @@ export function IntroSection() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="bg-brand-white/[0.02] backdrop-blur-md border border-white/[0.04] rounded-2xl p-6 hover:bg-brand-white/[0.04] hover:border-white/[0.06] transition-all duration-500"
             >
-              <span className="block text-[40px] md:text-[52px] font-bold text-brand-white mb-1 tracking-tight">
+              <span className="block text-[36px] md:text-[48px] font-bold text-brand-white mb-1 tracking-tight">
                 {stat.prefix || ""}
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </span>

@@ -5,9 +5,9 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 
 const CREDENTIALS = [
-  { value: "500+", label: "Projetos entregues" },
-  { value: "3", label: "Países atendidos" },
-  { value: "18+", label: "Anos de mercado" },
+  { value: "1", label: "PESSOA NO PROJETO" },
+  { value: "5+", label: "AGENTES DE IA TRABALHANDO" },
+  { value: "0", label: "INTERMEDIÁRIOS" },
 ];
 
 export function AboutSection() {
@@ -56,8 +56,8 @@ export function AboutSection() {
                 <span className="text-brand-white font-medium">
                   RIVO Stúdio
                 </span>
-                . Nos últimos 18 anos, ajudei mais de 500 empresas a transformarem
-                presença digital em{" "}
+                . Há mais de 18 anos ajudo empresas a transformarem presença digital
+                em{" "}
                 <span className="text-brand-white font-medium">
                   vantagem competitiva real
                 </span>
@@ -65,9 +65,8 @@ export function AboutSection() {
               </p>
               <p>
                 Diferente de agências onde seu projeto passa por 10 mãos, aqui
-                eu cuido de tudo: estratégia, design e desenvolvimento. Isso
-                garante consistência, velocidade e um nível de cuidado que
-                empresas grandes não conseguem oferecer.
+                eu cuido de tudo: estratégia, design e desenvolvimento. Você
+                fala direto com quem decide e executa.
               </p>
             </div>
 

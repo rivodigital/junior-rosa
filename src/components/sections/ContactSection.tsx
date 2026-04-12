@@ -20,13 +20,12 @@ export function ContactSection() {
         >
           <SectionLabel>10 — Vamos conversar</SectionLabel>
           <h2 className="text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight mb-5 text-brand-white leading-[1.05]">
-            Pronto para ter um site
+            Vamos tirar seu projeto
             <br />
-            <span className="text-brand-muted">que trabalha por você?</span>
+            <span className="text-brand-muted">do papel?</span>
           </h2>
           <p className="text-brand-muted text-base md:text-lg max-w-[580px] leading-relaxed">
-            Preencha o briefing em 2 minutos e receba uma proposta personalizada
-            em até 24h. Sem compromisso, sem chatbot — resposta humana e direta.
+            Chame no WhatsApp e o Riv, nosso assistente, vai te atender na hora, entender o que você precisa e me passar tudo certinho pra eu montar sua proposta.
           </p>
         </motion.div>
 
@@ -41,13 +40,13 @@ export function ContactSection() {
             <ContactOptionCard
               icon={<ClipboardSignature />}
               title="Briefing rápido"
-              description="O jeito mais eficiente de começar. Leva 2 minutos."
+              description="Formulário direto. Leva 2 minutos."
               isActive={true}
             />
             <ContactOptionCard
               icon={<MessageCircle />}
               title="WhatsApp"
-              description="Resposta em até 2h em horário comercial."
+              description="Resposta instantânea pelo Riv, 24/7."
               href={SITE_CONFIG.whatsapp}
             />
             <ContactOptionCard
@@ -59,7 +58,7 @@ export function ContactSection() {
             <ContactOptionCard
               icon={<Camera />}
               title="Instagram"
-              description="Bastidores e projetos em tempo real."
+              description="Veja os bastidores e projetos antes de decidir."
               href={SITE_CONFIG.socials.instagram}
             />
           </motion.div>

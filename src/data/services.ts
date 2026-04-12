@@ -12,47 +12,47 @@ export const SERVICES: Service[] = [
     number: "01.",
     title: "Landing Pages",
     description:
-      "Páginas de alta conversão que transformam tráfego em faturamento. Copywriting, design e performance técnica trabalhados em conjunto.",
-    highlight: "Média de +280% em conversão",
+      "Página única com um objetivo: converter. Ideal para lançamentos, captação de leads e campanhas de tráfego pago.",
+    highlight: "MÉDIA DE +280% EM CONVERSÃO",
   },
   {
     id: "sites",
     number: "02.",
     title: "Sites Institucionais",
     description:
-      "O cartão de visitas que fecha negócios antes da primeira reunião. Design que transmite credibilidade e posiciona a empresa como referência no mercado.",
-    highlight: "Autoridade digital desde o primeiro acesso",
+      "O site que faz o prospect confiar na sua empresa antes da primeira reunião. Posicionamento, credibilidade e geração de demanda.",
+    highlight: "SEU MELHOR VENDEDOR — 24H NO AR",
   },
   {
     id: "ecommerce",
     number: "03.",
     title: "E-commerces",
     description:
-      "Lojas virtuais desenhadas para vender. Fluxo de compra otimizado, checkout sem fricção e design que elimina objeções de compra.",
-    highlight: "Foco total em receita recorrente",
+      "Loja virtual com fluxo de compra pensado pra reduzir abandono de carrinho e aumentar ticket médio. Design que vende, não que enfeita.",
+    highlight: "CHECKOUT OTIMIZADO PARA CONVERSÃO",
   },
   {
     id: "branding",
     number: "04.",
     title: "Branding",
     description:
-      "Identidade visual que diferencia sua empresa num mercado saturado. Logo, paleta, tipografia e linguagem visual alinhados ao posicionamento estratégico.",
-    highlight: "Marcas que as pessoas reconhecem",
+      "Identidade visual que posiciona sua empresa acima da concorrência. Logo, paleta, tipografia e linguagem — tudo alinhado à estratégia.",
+    highlight: "SUA MARCA COMO ATIVO DE NEGÓCIO",
   },
   {
     id: "ai-whatsapp",
     number: "05.",
     title: "Agentes de IA para WhatsApp",
     description:
-      "Atendimento automatizado 24/7 no seu WhatsApp. O agente conversa naturalmente, entende áudios e imagens, qualifica leads, agenda reuniões e nunca deixa um cliente sem resposta.",
-    highlight: "Atendimento que nunca dorme",
+      "Seu WhatsApp respondendo sozinho — com inteligência. Qualifica leads, agenda reuniões, entende áudios e imagens. Nenhum cliente fica sem resposta.",
+    highlight: "ATENDIMENTO 24/7 NO PILOTO AUTOMÁTICO",
   },
   {
     id: "custom",
     number: "06.",
     title: "Projetos Sob Medida",
     description:
-      "Portais, sistemas de agendamento, dashboards e integrações. Se o seu negócio precisa de algo único, criamos do zero com a mesma exigência de qualidade.",
-    highlight: "Soluções sem limites de template",
+      "Portais, dashboards, sistemas de agendamento ou qualquer solução que seu negócio precise. Se não existe template, a gente cria do zero.",
+    highlight: "SEM LIMITES DE TEMPLATE",
   },
 ];

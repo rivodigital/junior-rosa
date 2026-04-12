@@ -5,19 +5,35 @@ export type ToolGroup = {
 
 export const TOOLS: ToolGroup[] = [
   {
-    category: "Design & Identidade",
-    items: ["Figma", "Adobe Illustrator", "Adobe Photoshop"],
+    category: "DESIGN & IDENTIDADE",
+    items: [
+      "Interfaces no Figma com fidelidade pixel-perfect",
+      "Identidade visual completa no Illustrator e Photoshop",
+      "Do conceito ao arquivo final — sem terceiros",
+    ],
   },
   {
-    category: "Desenvolvimento Web",
-    items: ["Framer", "Webflow", "WordPress", "Next.js", "React", "Tailwind CSS", "HTML & CSS"],
+    category: "DESENVOLVIMENTO WEB",
+    items: [
+      "Sites rápidos em Next.js, React e Tailwind",
+      "Também trabalho com Framer, Webflow e WordPress",
+      "Código limpo, responsivo e otimizado pra SEO",
+    ],
   },
   {
-    category: "Estratégia & Negócios",
-    items: ["Estratégia de marca", "Posicionamento", "Arquitetura de informação"],
+    category: "ESTRATÉGIA & POSICIONAMENTO",
+    items: [
+      "Estratégia de marca e posicionamento",
+      "Arquitetura de informação focada em conversão",
+      "Copywriting orientado a resultado",
+    ],
   },
   {
-    category: "IA Aplicada",
-    items: ["IA no desenvolvimento", "IA na criação de conteúdo", "Automação de processos"],
+    category: "IA APLICADA",
+    items: [
+      "Agentes de IA para atendimento via WhatsApp",
+      "IA no desenvolvimento e criação de conteúdo",
+      "Automação de processos repetitivos",
+    ],
   },
 ];
