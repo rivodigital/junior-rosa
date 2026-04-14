@@ -65,7 +65,7 @@ export function BlogPostView({ post }: BlogPostViewProps) {
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-6 md:px-12 max-w-[1100px]">
           <motion.div
-            className="w-full aspect-[16/9] rounded-2xl overflow-hidden bg-brand-gray"
+            className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-brand-gray"
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -169,7 +169,7 @@ export function BlogPostView({ post }: BlogPostViewProps) {
                   href={`/blog/${p.slug}`}
                   className="group flex flex-col gap-5"
                 >
-                  <div className="w-full aspect-[16/10] overflow-hidden rounded-2xl bg-brand-gray">
+                  <div className="relative w-full aspect-[16/10] overflow-hidden rounded-2xl bg-brand-gray">
                     <Image
                       src={encodeURI(p.image)}
                       alt={p.title}
