@@ -17,6 +17,8 @@ export type BlogPost = {
   intro: string;
   sections: BlogSection[];
   conclusion: string;
+  publishedAt?: string;
+  updatedAt?: string;
 };
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -29,6 +31,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "5 erros que transformam seu site num folheto digital. O terceiro é o mais comum.",
     author: "Junior Rosa",
     readTime: "5 min",
+    publishedAt: "2026-03-10",
     image: "/images/Posts/Por-que-seu-site-bonito-não-vende.jpg",
     intro:
       "Todo mundo já viu aquele site lindo, com animações elegantes, tipografia caprichada e fotos de banco de imagens premium. Só que ele não vende. Não gera lead. Não fecha contrato. Nesse artigo eu explico por quê — e o que precisa mudar para o seu site deixar de ser um portfólio digital e virar um ativo de vendas.",
@@ -81,6 +84,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "De R$2k a R$50k — o que muda em cada faixa e por que o barato custa caro.",
     author: "Junior Rosa",
     readTime: "8 min",
+    publishedAt: "2026-03-24",
     image: "/images/Posts/Quanto-custa-um-site-profissional-em-2026.jpg",
     intro:
       "Essa é a pergunta que mais recebo. E a resposta honesta é: depende. Mas depende de fatores concretos, não de chute. Nesse guia eu abro as faixas de preço, o que está incluso em cada uma e onde vale — ou não — economizar.",
@@ -133,6 +137,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Comparamos conversão, performance e percepção de marca. O resultado surpreende.",
     author: "Junior Rosa",
     readTime: "4 min",
+    publishedAt: "2026-04-07",
     image: "/images/Posts/Template-vs-site-sob-medida.jpg",
     intro:
       "Template ou sob medida? É uma das decisões mais comuns no início de um projeto digital. Vou te mostrar, sem romantização, onde cada um brilha e onde decepciona.",
