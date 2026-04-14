@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ProjectCard } from "@/components/ui/ProjectCard";
-import { Button } from "@/components/ui/Button";
+
 import { PROJECTS } from "@/data/projects";
 
 export function PortfolioSection() {
   return (
-    <section id="portfolio" className="py-24 md:py-40 bg-brand-black border-t border-white/[0.06]">
+    <section id="portfolio" className="py-16 md:py-24 lg:py-40 bg-brand-black border-t border-white/[0.06]">
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -19,7 +19,7 @@ export function PortfolioSection() {
         >
           <div>
             <SectionLabel>03 — Resultados reais</SectionLabel>
-            <h2 className="text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight text-brand-white leading-[1.05]">
+            <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight text-brand-white leading-[1.05]">
               Projetos que geraram
               <br />
               <span className="text-brand-muted">resultado mensurável.</span>
@@ -49,17 +49,7 @@ export function PortfolioSection() {
           ))}
         </div>
 
-        <motion.div
-          className="flex justify-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <Button variant="link" href="#">
-            Ver todos os projetos
-          </Button>
-        </motion.div>
+
       </div>
     </section>
   );

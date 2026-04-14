@@ -17,7 +17,7 @@ export function ContactOptionCard({
   href,
   isActive = false
 }: ContactOptionCardProps) {
-  const baseClasses = `p-6 md:p-8 bg-brand-white/[0.02] backdrop-blur-xl rounded-xl border transition-all cursor-pointer text-left
+  const baseClasses = `p-4 md:p-6 lg:p-8 bg-brand-white/[0.02] backdrop-blur-xl rounded-xl border transition-all cursor-pointer text-left active:scale-[0.98]
     ${isActive ? 'border-brand-white bg-brand-white/[0.05]' : 'border-white/[0.06] hover:border-white/[0.1] hover:bg-brand-white/[0.04]'}`;
 
   const content = (

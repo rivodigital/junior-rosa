@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAVIGATION_LINKS } from "@/lib/constants";
 import { Menu, X } from "lucide-react";
@@ -8,12 +9,26 @@ import { Menu, X } from "lucide-react";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const toHref = (href: string) =>
+    href.startsWith("#") && !isHome ? `/${href}` : href;
+  const homeHref = isHome ? "#" : "/";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileMenuOpen]);
 
   return (
     <motion.nav
@@ -27,7 +42,7 @@ export function Navbar() {
       transition={{ duration: 0.6 }}
     >
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px] flex justify-between items-center">
-        <a href="#" aria-label="RIVO">
+        <a href={homeHref} aria-label="RIVO" className="min-h-[44px] min-w-[44px] flex items-center p-2 -m-2">
           <img src="/images/logo_clara.png" alt="RIVO" className="h-7 w-auto" />
         </a>
 
@@ -36,7 +51,7 @@ export function Navbar() {
           {NAVIGATION_LINKS.map((link) => (
             <a
               key={link.label}
-              href={link.href}
+              href={toHref(link.href)}
               className="text-brand-muted text-[13px] font-medium uppercase tracking-[0.08em] hover:text-brand-white transition-colors duration-300"
             >
               {link.label}
@@ -46,8 +61,8 @@ export function Navbar() {
 
         <div className="hidden md:block">
           <motion.a
-            href="#contato"
-            className="border border-brand-white text-brand-white px-7 py-2.5 rounded-xl font-bold text-[13px] uppercase tracking-[0.05em] hover:bg-brand-white hover:text-brand-black transition-all duration-300"
+            href={toHref("#contato")}
+            className="border border-brand-white text-brand-white px-7 py-2.5 min-h-[44px] rounded-xl font-bold text-[13px] uppercase tracking-[0.05em] hover:bg-brand-white hover:text-brand-black transition-all duration-300 active:scale-95"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -57,7 +72,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-brand-white p-2"
+          className="md:hidden text-brand-white min-h-[44px] min-w-[44px] flex items-center justify-center p-2"
           onClick={() => setMobileMenuOpen(true)}
           aria-label="Abrir menu"
         >
@@ -78,7 +93,7 @@ export function Navbar() {
                 <img src="/images/logo_clara.png" alt="RIVO" className="h-7 w-auto" />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-brand-white p-2"
+                  className="text-brand-white min-h-[44px] min-w-[44px] flex items-center justify-center p-2"
                   aria-label="Fechar menu"
                 >
                   <X className="w-8 h-8" />
@@ -89,9 +104,9 @@ export function Navbar() {
                 {NAVIGATION_LINKS.map((link, i) => (
                   <motion.a
                     key={link.label}
-                    href={link.href}
+                    href={toHref(link.href)}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-[36px] font-bold text-brand-white tracking-tight"
+                    className="text-[36px] font-bold text-brand-white tracking-tight min-h-[44px] flex items-center active:opacity-60"
                     initial={{ opacity: 0, x: 40 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
@@ -102,9 +117,9 @@ export function Navbar() {
               </div>
 
               <motion.a
-                href="#contato"
+                href={toHref("#contato")}
                 onClick={() => setMobileMenuOpen(false)}
-                className="border border-brand-white text-brand-white px-8 py-4 rounded-xl font-bold text-[14px] uppercase tracking-[0.05em] text-center hover:bg-brand-white hover:text-brand-black transition-all"
+                className="border border-brand-white text-brand-white px-8 py-4 min-h-[56px] rounded-xl font-bold text-[14px] uppercase tracking-[0.05em] text-center hover:bg-brand-white hover:text-brand-black transition-all active:scale-95"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.5 }}

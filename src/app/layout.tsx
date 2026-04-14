@@ -56,6 +56,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${sora.variable} h-full antialiased dark`}>
       <head>
+        <meta name="theme-color" content="#0A0A0A" />
         <link rel="canonical" href="https://juniorrosa.design" />
       </head>
       <body className="min-h-full flex flex-col bg-brand-black text-brand-white overflow-x-hidden">

@@ -12,7 +12,7 @@ const CREDENTIALS = [
 
 export function AboutSection() {
   return (
-    <section id="sobre" className="py-24 md:py-40 bg-brand-black">
+    <section id="sobre" className="py-16 md:py-24 lg:py-40 bg-brand-black">
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20 items-center">
           {/* Image */}
@@ -42,7 +42,7 @@ export function AboutSection() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <SectionLabel>05 — Quem está por trás</SectionLabel>
-            <h2 className="text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight mb-8 leading-[1.05] text-brand-white">
+            <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight mb-8 leading-[1.05] text-brand-white">
               Eu não terceirizo.
               <br />
               <span className="text-brand-muted">
@@ -71,7 +71,7 @@ export function AboutSection() {
             </div>
 
             {/* Credentials */}
-            <div className="flex gap-6 md:gap-8 mb-12 pb-12 border-b border-white/5">
+            <div className="flex flex-wrap gap-3 md:gap-6 lg:gap-8 mb-12 pb-12 border-b border-white/5">
               {CREDENTIALS.map((cred, i) => (
                 <motion.div
                   key={cred.label}
@@ -79,12 +79,12 @@ export function AboutSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                  className="bg-brand-white/[0.02] backdrop-blur-md border border-white/[0.04] rounded-xl p-4 hover:bg-brand-white/[0.04] hover:border-white/[0.06] transition-all duration-500"
+                  className="bg-brand-white/[0.02] backdrop-blur-md border border-white/[0.04] rounded-xl p-3 md:p-4 flex-1 min-w-[100px] hover:bg-brand-white/[0.04] hover:border-white/[0.06] transition-all duration-500"
                 >
-                  <span className="block text-[28px] md:text-[36px] font-bold text-brand-white mb-1 tracking-tight">
+                  <span className="block text-[24px] sm:text-[28px] md:text-[36px] font-bold text-brand-white mb-1 tracking-tight">
                     {cred.value}
                   </span>
-                  <span className="text-[10px] uppercase tracking-[0.15em] text-brand-muted font-medium">
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] text-brand-muted font-medium">
                     {cred.label}
                   </span>
                 </motion.div>

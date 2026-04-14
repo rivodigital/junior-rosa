@@ -194,7 +194,7 @@ export function HeroSection() {
         className="container relative z-10 mx-auto px-6 md:px-12 max-w-[1400px]"
         style={{ y: textY, opacity: opacityOut }}
       >
-        <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[85vh]">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[85dvh]">
           {/* ===== LEFT: TYPOGRAPHY ===== */}
           <motion.div
             className="lg:col-span-7 flex flex-col relative z-20 pb-16 lg:pb-0 [perspective:1000px]"
@@ -241,7 +241,7 @@ export function HeroSection() {
             {/* CTA with dramatic entrance */}
             <motion.div
               variants={slideUp}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-16"
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-12"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -250,7 +250,7 @@ export function HeroSection() {
                 <Button
                   href="#portfolio"
                   variant="outline"
-                  className="h-[60px] px-10 text-[16px] rounded-full relative overflow-hidden group"
+                  className="h-[52px] md:h-[60px] px-6 md:px-10 text-[14px] md:text-[16px] rounded-full relative overflow-hidden group"
                 >
                   <span className="relative z-10">Ver Trabalhos</span>
                 </Button>
@@ -302,7 +302,7 @@ export function HeroSection() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 2.5 + idx * 0.1 }}
-                    className="text-[12px] uppercase tracking-[0.2em] font-bold text-brand-muted hover:text-brand-white transition-colors duration-500 cursor-default"
+                    className="text-[11px] sm:text-[12px] uppercase tracking-[0.15em] sm:tracking-[0.2em] font-bold text-brand-muted hover:text-brand-white transition-colors duration-500 cursor-default"
                   >
                     {tag}
                   </motion.span>
@@ -362,7 +362,7 @@ export function HeroSection() {
 
             {/* Floating Glass Badge 1 - with more dramatic movement */}
             <motion.div
-              className="absolute -left-6 md:-left-14 top-[18%] bg-brand-white/[0.04] border border-brand-white/10 backdrop-blur-2xl py-4 px-6 rounded-2xl shadow-2xl"
+              className="absolute left-2 sm:-left-6 md:-left-14 top-[18%] bg-brand-white/[0.04] border border-brand-white/10 backdrop-blur-2xl py-3 px-4 sm:py-4 sm:px-6 rounded-2xl shadow-2xl"
               initial={{ opacity: 0, x: -50, rotateY: -20 }}
               animate={{
                 opacity: 1,
@@ -378,17 +378,17 @@ export function HeroSection() {
               }}
               whileHover={{ scale: 1.08 }}
             >
-              <span className="block text-[10px] uppercase font-bold text-brand-muted tracking-[0.2em] mb-1">
+              <span className="block text-[9px] sm:text-[10px] uppercase font-bold text-brand-muted tracking-[0.2em] mb-1">
                 Resultado comprovado
               </span>
-              <span className="block text-[16px] text-brand-white font-medium">
-                R$480k gerados em 90 dias
+              <span className="block text-[13px] sm:text-[16px] text-brand-white font-medium">
+                18 anos no digital
               </span>
             </motion.div>
 
             {/* Floating Glass Badge 2 */}
             <motion.div
-              className="absolute right-0 md:right-4 bottom-[12%] bg-brand-black/50 border border-brand-white/[0.06] backdrop-blur-2xl py-4 px-8 rounded-full shadow-2xl"
+              className="absolute right-0 md:right-4 bottom-[12%] bg-brand-black/50 border border-brand-white/[0.06] backdrop-blur-2xl py-3 px-4 sm:py-4 sm:px-8 rounded-full shadow-2xl"
               initial={{ opacity: 0, x: 50, rotateY: 20 }}
               animate={{
                 opacity: 1,
@@ -410,7 +410,7 @@ export function HeroSection() {
                   animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
-                <span className="block text-[12px] uppercase font-bold text-brand-white tracking-[0.1em]">
+                <span className="block text-[10px] sm:text-[12px] uppercase font-bold text-brand-white tracking-[0.1em]">
                   Disponível para Projetos
                 </span>
               </div>
@@ -437,7 +437,7 @@ export function HeroSection() {
         transition={{ delay: 3, duration: 1 }}
       >
         <motion.span
-          className="text-[10px] uppercase tracking-[0.3em] text-brand-muted font-medium"
+          className="text-[11px] sm:text-[10px] uppercase tracking-[0.3em] text-brand-muted font-medium"
           animate={{ opacity: [0.3, 0.8, 0.3] }}
           transition={{ duration: 2, repeat: Infinity }}
         >

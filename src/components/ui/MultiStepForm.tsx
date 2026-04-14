@@ -23,22 +23,56 @@ export function MultiStepForm() {
     email: "",
     whatsapp: "",
   });
+  const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const nextStep = () => setStep((s) => Math.min(s + 1, 3));
   const prevStep = () => setStep((s) => Math.max(s - 1, 1));
-  
-  const submitForm = (e: React.FormEvent) => {
+
+  const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Submitted Successfully:", formData);
-    alert("Mensagem enviada com sucesso! Entrarei em contato em breve.");
-    setStep(1);
-    setFormData({
-      type: "", objective: "", deadline: "", details: "", name: "", email: "", whatsapp: ""
-    });
+    setError(null);
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Falha ao enviar.");
+      }
+      setSubmitted(true);
+      setStep(1);
+      setFormData({
+        type: "", objective: "", deadline: "", details: "", name: "", email: "", whatsapp: ""
+      });
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Falha ao enviar.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
-    <div className="bg-brand-gray p-8 md:p-12 rounded-xl flex flex-col min-h-[500px]">
+    <div className="relative bg-brand-gray p-5 md:p-12 rounded-xl flex flex-col min-h-[500px]">
+      {submitted && (
+        <div className="absolute inset-0 bg-brand-gray/95 z-10 flex items-center justify-center rounded-xl">
+          <div className="text-center">
+            <div className="w-16 h-16 rounded-full bg-brand-white/10 flex items-center justify-center mx-auto mb-6">
+              <svg className="w-8 h-8 text-brand-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-brand-white mb-2">Mensagem enviada!</h3>
+            <p className="text-brand-muted">Entrarei em contato em breve.</p>
+          </div>
+        </div>
+      )}
+
       <div className="flex justify-between items-center mb-12">
         <div className="flex gap-4">
           {[1, 2, 3].map(i => (
@@ -51,21 +85,20 @@ export function MultiStepForm() {
       <form onSubmit={step === 3 ? submitForm : (e) => { e.preventDefault(); nextStep(); }} className="flex-grow flex flex-col">
         {step === 1 && (
           <div className="flex-grow space-y-6 animate-in fade-in zoom-in-95 duration-300">
-            <h3 className="text-2xl md:text-3xl font-bold text-brand-white mb-6">Qual o tipo do seu projeto?</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <h3 className="text-xl md:text-3xl font-bold text-brand-white mb-6">Qual o tipo do seu projeto?</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
               {PROJECT_TYPES.map(type => (
-                <label key={type} className={`flex items-center gap-4 p-5 md:p-6 border rounded-xl cursor-pointer transition-all ${formData.type === type ? 'border-brand-white bg-white/5' : 'border-white/10 hover:bg-white/5'}`}>
-                  <input
-                    type="radio"
-                    name="project_type"
-                    value={type}
-                    checked={formData.type === type}
-                    onChange={(e) => setFormData({...formData, type: e.target.value})}
-                    className="w-4 h-4 accent-brand-white bg-transparent border-white/20"
-                    required
-                  />
+                <button
+                  key={type}
+                  type="button"
+                  onClick={() => setFormData({ ...formData, type })}
+                  className={`flex items-center gap-4 p-4 md:p-6 min-h-[56px] border rounded-xl cursor-pointer transition-all text-left ${formData.type === type ? 'border-brand-white bg-white/5' : 'border-white/10 hover:bg-white/5'}`}
+                >
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${formData.type === type ? 'border-brand-white' : 'border-white/20'}`}>
+                    {formData.type === type && <div className="w-2.5 h-2.5 rounded-full bg-brand-white" />}
+                  </div>
                   <span className="font-bold text-brand-white text-sm md:text-base">{type}</span>
-                </label>
+                </button>
               ))}
             </div>
           </div>
@@ -73,7 +106,7 @@ export function MultiStepForm() {
 
         {step === 2 && (
           <div className="flex-grow space-y-6 animate-in fade-in zoom-in-95 duration-300">
-            <h3 className="text-2xl md:text-3xl font-bold text-brand-white mb-6">Detalhes do projeto</h3>
+            <h3 className="text-xl md:text-3xl font-bold text-brand-white mb-6">Detalhes do projeto</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-bold text-brand-muted mb-2">Objetivo principal</label>
@@ -82,7 +115,7 @@ export function MultiStepForm() {
                   rows={2}
                   value={formData.objective}
                   onChange={e => setFormData({...formData, objective: e.target.value})}
-                  className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors resize-none"
+                  className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-base text-brand-white focus:outline-none focus:border-brand-white transition-colors resize-none"
                   placeholder="Ex: Aumentar vendas, mudar posicionamento..."
                 />
               </div>
@@ -92,7 +125,7 @@ export function MultiStepForm() {
                   required
                   value={formData.deadline}
                   onChange={e => setFormData({...formData, deadline: e.target.value})}
-                  className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors"
+                  className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-base text-brand-white focus:outline-none focus:border-brand-white transition-colors"
                 >
                   <option value="">Selecione uma opção</option>
                   <option value="urgente">O quanto antes (Até 1 mês)</option>
@@ -106,7 +139,7 @@ export function MultiStepForm() {
                   rows={2}
                   value={formData.details}
                   onChange={e => setFormData({...formData, details: e.target.value})}
-                  className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors resize-none"
+                  className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-base text-brand-white focus:outline-none focus:border-brand-white transition-colors resize-none"
                   placeholder="Alguma restrição ou ideia específica?"
                 />
               </div>
@@ -116,7 +149,7 @@ export function MultiStepForm() {
 
         {step === 3 && (
           <div className="flex-grow space-y-6 animate-in fade-in zoom-in-95 duration-300">
-             <h3 className="text-2xl md:text-3xl font-bold text-brand-white mb-6">Para onde envio a proposta?</h3>
+             <h3 className="text-xl md:text-3xl font-bold text-brand-white mb-6">Para onde envio a proposta?</h3>
              <div className="space-y-4">
                <div>
                   <label className="block text-sm font-bold text-brand-muted mb-2">Seu Nome</label>
@@ -124,7 +157,7 @@ export function MultiStepForm() {
                     type="text" required
                     value={formData.name}
                     onChange={e => setFormData({...formData, name: e.target.value})}
-                    className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors"
+                    className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-base text-brand-white focus:outline-none focus:border-brand-white transition-colors"
                   />
                </div>
                <div>
@@ -133,7 +166,7 @@ export function MultiStepForm() {
                     type="email" required
                     value={formData.email}
                     onChange={e => setFormData({...formData, email: e.target.value})}
-                    className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors"
+                    className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-base text-brand-white focus:outline-none focus:border-brand-white transition-colors"
                   />
                </div>
                <div>
@@ -142,22 +175,26 @@ export function MultiStepForm() {
                     type="tel" required
                     value={formData.whatsapp}
                     onChange={e => setFormData({...formData, whatsapp: e.target.value})}
-                    className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-brand-white focus:outline-none focus:border-brand-white transition-colors"
+                    className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-base text-brand-white focus:outline-none focus:border-brand-white transition-colors"
                   />
                </div>
              </div>
           </div>
         )}
 
+        {error && step === 3 && (
+          <p className="mt-4 text-sm text-red-400">{error}</p>
+        )}
+
         <div className="pt-8 mt-auto border-t border-white/10 flex justify-between items-center">
           {step > 1 ? (
-            <button type="button" onClick={prevStep} className="text-brand-muted hover:text-brand-white font-medium text-sm transition-colors">
+            <button type="button" onClick={prevStep} disabled={sending} className="text-brand-muted hover:text-brand-white font-medium text-sm transition-colors min-h-[44px] flex items-center disabled:opacity-50">
               Voltar
             </button>
           ) : <div/>}
 
-          <Button type="submit" variant="outline" className="px-8 py-3">
-            {step === 3 ? "Enviar Solicitação" : "Próximo Passo"}
+          <Button type="submit" variant="outline" className="px-8 py-3 disabled:opacity-60" disabled={sending}>
+            {step === 3 ? (sending ? "Enviando..." : "Enviar Solicitação") : "Próximo Passo"}
           </Button>
         </div>
       </form>

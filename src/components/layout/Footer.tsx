@@ -1,10 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { MarqueeStrip } from "./MarqueeStrip";
 import { NAVIGATION_LINKS, SITE_CONFIG } from "@/lib/constants";
 
 export function Footer() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const toHref = (href: string) =>
+    href.startsWith("#") && !isHome ? `/${href}` : href;
   return (
     <footer className="bg-brand-black w-full border-t border-brand-accent/5 flex flex-col">
       <div className="py-10 border-b border-brand-accent/5 bg-brand-black overflow-hidden">
@@ -12,11 +17,11 @@ export function Footer() {
           text="CAUSE IMPACTO"
           speed="40s"
           bgColor="bg-brand-black"
-          textClassName="text-[64px] md:text-[120px] lg:text-[160px] font-bold uppercase tracking-tighter text-brand-white opacity-[0.04]"
+          textClassName="text-[36px] sm:text-[64px] md:text-[120px] lg:text-[160px] font-bold uppercase tracking-tighter text-brand-white opacity-[0.04]"
         />
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 max-w-[1200px] py-16 md:py-24 flex flex-col gap-16 md:gap-20">
+        <div className="container mx-auto px-6 md:px-12 max-w-[1200px] py-12 md:py-16 lg:py-24 flex flex-col gap-12 md:gap-16 lg:gap-20">
         <motion.div
           className="flex flex-col md:flex-row justify-between gap-16"
           initial={{ opacity: 0, y: 20 }}
@@ -38,11 +43,11 @@ export function Footer() {
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-white">
                 Navegação
               </span>
-              <div className="flex flex-col gap-3 text-[13px] text-brand-muted">
+              <div className="flex flex-col gap-3 text-[14px] text-brand-muted">
                 {NAVIGATION_LINKS.map((link) => (
                   <a
                     key={link.label}
-                    href={link.href}
+                    href={toHref(link.href)}
                     className="hover:text-brand-white transition-colors duration-300"
                   >
                     {link.label}
@@ -55,7 +60,7 @@ export function Footer() {
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-white">
                 Social
               </span>
-              <div className="flex flex-col gap-3 text-[13px] text-brand-muted">
+              <div className="flex flex-col gap-3 text-[14px] text-brand-muted">
                 {Object.entries(SITE_CONFIG.socials).map(([key, url]) => (
                   <a
                     key={key}
@@ -74,7 +79,7 @@ export function Footer() {
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-white">
                 Contato
               </span>
-              <div className="flex flex-col gap-3 text-[13px] text-brand-muted">
+              <div className="flex flex-col gap-3 text-[14px] text-brand-muted">
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
                   className="hover:text-brand-white transition-colors duration-300"

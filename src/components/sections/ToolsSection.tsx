@@ -6,7 +6,7 @@ import { TOOLS } from "@/data/tools";
 
 export function ToolsSection() {
   return (
-    <section id="ferramentas" className="py-24 md:py-40 bg-brand-black border-t border-white/5">
+    <section id="ferramentas" className="py-16 md:py-24 lg:py-40 bg-brand-black border-t border-white/5">
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
         <motion.div
           className="mb-16 md:mb-24 max-w-2xl"
@@ -16,7 +16,7 @@ export function ToolsSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <SectionLabel>06 — Stack de trabalho</SectionLabel>
-          <h2 className="text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight text-brand-white leading-[1.05] mb-5">
+          <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight text-brand-white leading-[1.05] mb-5">
             Ferramentas de quem
             <br />
             <span className="text-brand-muted">leva o digital a sério.</span>

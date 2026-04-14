@@ -5,11 +5,11 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ContactOptionCard } from "@/components/ui/ContactOptionCard";
 import { MultiStepForm } from "@/components/ui/MultiStepForm";
 import { SITE_CONFIG } from "@/lib/constants";
-import { MessageCircle, Mail, Camera, ClipboardSignature } from "lucide-react";
+import { MessageCircle, Mail, ClipboardSignature } from "lucide-react";
 
 export function ContactSection() {
   return (
-    <section id="contato" className="py-24 md:py-40 bg-brand-black">
+    <section id="contato" className="py-16 md:py-24 lg:py-40 bg-brand-black">
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
         <motion.div
           className="mb-16 md:mb-20"
@@ -19,7 +19,7 @@ export function ContactSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <SectionLabel>10 — Vamos conversar</SectionLabel>
-          <h2 className="text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight mb-5 text-brand-white leading-[1.05]">
+          <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight mb-5 text-brand-white leading-[1.05]">
             Vamos tirar seu projeto
             <br />
             <span className="text-brand-muted">do papel?</span>
@@ -54,12 +54,6 @@ export function ContactSection() {
               title="E-mail"
               description={SITE_CONFIG.email}
               href={`mailto:${SITE_CONFIG.email}`}
-            />
-            <ContactOptionCard
-              icon={<Camera />}
-              title="Instagram"
-              description="Veja os bastidores e projetos antes de decidir."
-              href={SITE_CONFIG.socials.instagram}
             />
           </motion.div>
 

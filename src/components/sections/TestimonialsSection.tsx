@@ -9,7 +9,7 @@ export function TestimonialsSection() {
   return (
     <section
       id="depoimentos"
-      className="py-24 md:py-40 bg-brand-gray border-y border-white/5"
+      className="py-16 md:py-24 lg:py-40 bg-brand-gray border-y border-white/5"
     >
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
         <motion.div
@@ -21,7 +21,7 @@ export function TestimonialsSection() {
         >
           <div>
             <SectionLabel>07 — Prova social</SectionLabel>
-            <h2 className="text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight text-brand-white leading-[1.05]">
+            <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight text-brand-white leading-[1.05]">
               Não acredite em mim.
               <br />
               <span className="text-brand-muted">

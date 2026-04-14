@@ -46,7 +46,7 @@ export function IntroSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="intro" className="py-24 md:py-40 bg-brand-black">
+    <section id="intro" className="py-16 md:py-24 lg:py-40 bg-brand-black">
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
         <motion.div
           ref={ref}
@@ -65,7 +65,7 @@ export function IntroSection() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h2 className="text-[26px] md:text-[34px] lg:text-[42px] font-light leading-[1.15] tracking-[-0.02em] text-brand-white mb-8">
+            <h2 className="text-[22px] sm:text-[26px] md:text-[34px] lg:text-[42px] font-light leading-[1.15] tracking-[-0.02em] text-brand-white mb-8">
               Seu site deveria estar{" "}
               <span className="font-semibold">vendendo agora</span>.
             </h2>
@@ -111,9 +111,9 @@ export function IntroSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-brand-white/[0.02] backdrop-blur-md border border-white/[0.04] rounded-2xl p-6 hover:bg-brand-white/[0.04] hover:border-white/[0.06] transition-all duration-500"
+              className="bg-brand-white/[0.02] backdrop-blur-md border border-white/[0.04] rounded-2xl p-4 md:p-6 hover:bg-brand-white/[0.04] hover:border-white/[0.06] transition-all duration-500"
             >
-              <span className="block text-[36px] md:text-[48px] font-bold text-brand-white mb-1 tracking-tight">
+              <span className="block text-[28px] sm:text-[36px] md:text-[48px] font-bold text-brand-white mb-1 tracking-tight">
                 {stat.prefix || ""}
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </span>

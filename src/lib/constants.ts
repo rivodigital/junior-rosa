@@ -2,13 +2,11 @@ export const SITE_CONFIG = {
   name: "RIVO Stúdio",
   author: "Junior Rosa",
   url: "https://juniorrosa.design",
-  email: "contato@rivostudio.com.br",
-  whatsapp: "https://wa.me/5547000000000",
+  email: "jr@rivos.me",
+  whatsapp: "https://wa.me/5547989141011",
   address: "Joinville, Brasil",
   socials: {
-    instagram: "https://instagram.com/juniorrosa.design",
-    linkedin: "https://linkedin.com/in/juniorrosa",
-    behance: "https://behance.net/juniorrosa",
+    instagram: "https://www.instagram.com/ojuniorosa/",
   },
 };
 

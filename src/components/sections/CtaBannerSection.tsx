@@ -7,7 +7,7 @@ import { MapPin, MessageCircle, Zap } from "lucide-react";
 
 export function CtaBannerSection() {
   return (
-    <section className="py-24 md:py-32 bg-brand-dark border-y border-white/5 relative overflow-hidden">
+    <section className="py-16 md:py-24 lg:py-32 bg-brand-dark border-y border-white/5 relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-white/[0.02] rounded-full blur-[200px] pointer-events-none" />
 
@@ -19,18 +19,18 @@ export function CtaBannerSection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="hidden md:block w-full h-[550px] bg-brand-gray rounded-2xl overflow-hidden relative">
+          <div className="w-full h-[180px] md:h-auto md:block md:aspect-[3/4] bg-brand-gray rounded-2xl overflow-hidden relative">
             <div
-              className="absolute inset-0 bg-cover bg-center"
+              className="absolute inset-0 bg-cover bg-center grayscale"
               style={{
-                backgroundImage: "url('/images/cta-banner.webp')",
+                backgroundImage: "url('/images/junior_06.jpg')",
               }}
             />
           </div>
 
           <div className="space-y-8">
             <motion.h2
-              className="text-[36px] md:text-[48px] lg:text-[56px] font-bold leading-[1.05] tracking-tight text-brand-white"
+              className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] font-bold leading-[1.05] tracking-tight text-brand-white"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -51,7 +51,7 @@ export function CtaBannerSection() {
               </div>
               <div className="flex items-center gap-3 text-brand-muted">
                 <MessageCircle className="w-4 h-4 text-brand-white" />
-                <span>Você fala direto comigo — sem atendente, sem bot</span>
+                <span>Atendimento ágil e direto — com acompanhamento pessoal meu em cada etapa</span>
               </div>
               <div className="flex items-center gap-3 text-brand-muted">
                 <MapPin className="w-4 h-4 text-brand-white" />

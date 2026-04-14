@@ -7,7 +7,7 @@ import { SERVICES } from "@/data/services";
 
 export function ServicesSection() {
   return (
-    <section id="servicos" className="py-24 md:py-40 bg-brand-gray border-y border-white/5">
+    <section id="servicos" className="py-16 md:py-24 lg:py-40 bg-brand-gray border-y border-white/5">
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 mb-16 md:mb-20 items-end"
@@ -18,7 +18,7 @@ export function ServicesSection() {
         >
           <div>
             <SectionLabel>04 — O que eu resolvo</SectionLabel>
-            <h2 className="text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight text-brand-white leading-[1.05]">
+            <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight text-brand-white leading-[1.05]">
               Seu negócio precisa de
               <br />
               <span className="text-brand-muted">presença que converte.</span>

@@ -30,7 +30,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {/* Result badge - outside the image */}
       {project.result && (
         <div className="inline-flex self-start bg-brand-white/5 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-brand-white">
+          <span className="text-xs font-bold uppercase tracking-wider text-brand-white">
             {project.result}
           </span>
         </div>
@@ -38,7 +38,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <div>
         {project.category && (
-          <p className="text-xs text-brand-muted uppercase tracking-wider mb-1">
+          <p className="text-[11px] sm:text-xs text-brand-muted uppercase tracking-wider mb-1">
             {project.category}
           </p>
         )}
