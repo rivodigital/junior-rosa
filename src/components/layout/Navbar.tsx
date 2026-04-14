@@ -32,15 +32,12 @@ export function Navbar() {
   }, [mobileMenuOpen]);
 
   return (
-    <motion.nav
-      className={`fixed top-0 w-full z-50 transition-all duration-500 font-sans ${
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-500 font-sans animate-[navbarEntrance_0.6s_ease-out_both] ${
         isScrolled
           ? "bg-brand-black/80 backdrop-blur-2xl py-4"
           : "bg-transparent py-6"
       }`}
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
     >
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px] flex justify-between items-center">
         <a href={homeHref} aria-label="RIVO" className="min-h-[44px] min-w-[44px] flex items-center p-2 -m-2">
@@ -61,14 +58,12 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:block">
-          <motion.a
+          <a
             href={toHref("#contato")}
-            className="border border-brand-white text-brand-white px-7 py-2.5 min-h-[44px] rounded-xl font-bold text-[13px] uppercase tracking-[0.05em] hover:bg-brand-white hover:text-brand-black transition-all duration-300 active:scale-95"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
+            className="inline-block border border-brand-white text-brand-white px-7 py-2.5 min-h-[44px] rounded-xl font-bold text-[13px] uppercase tracking-[0.05em] hover:bg-brand-white hover:text-brand-black hover:scale-[1.03] transition-all duration-300 active:scale-95"
           >
             Iniciar projeto
-          </motion.a>
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -131,6 +126,6 @@ export function Navbar() {
           )}
         </AnimatePresence>
       </div>
-    </motion.nav>
+    </nav>
   );
 }
