@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
+import Image from "next/image";
 
 function AnimatedCounter({
   end,
@@ -92,11 +93,12 @@ export function IntroSection() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="w-full aspect-[3/4] bg-brand-gray rounded-2xl overflow-hidden relative">
-              <div
-                className="w-full h-full bg-cover bg-center"
-                style={{
-                  backgroundImage: "url('/images/junior_04.jpg')",
-                }}
+              <Image
+                src="/images/junior_04.jpg"
+                alt="Estratégia e Conversão"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </motion.div>

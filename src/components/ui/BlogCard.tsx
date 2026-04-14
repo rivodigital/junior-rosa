@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { BlogPost } from "@/data/blog-posts";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 interface BlogCardProps {
   post: BlogPost;
@@ -17,11 +18,18 @@ export function BlogCard({ post }: BlogCardProps) {
       >
       <div className="w-full aspect-[16/10] overflow-hidden rounded-2xl relative bg-brand-gray">
         <motion.div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${post.image})` }}
+          className="absolute inset-0 w-full h-full"
           variants={{ hover: { scale: 1.06 } }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        />
+        >
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        </motion.div>
       </div>
 
       <div className="flex flex-col flex-grow">

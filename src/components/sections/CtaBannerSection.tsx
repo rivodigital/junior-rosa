@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/constants";
 import { MapPin, MessageCircle, Zap } from "lucide-react";
 
@@ -20,11 +21,12 @@ export function CtaBannerSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="w-full h-[180px] md:h-auto md:block md:aspect-[3/4] bg-brand-gray rounded-2xl overflow-hidden relative">
-            <div
-              className="absolute inset-0 bg-cover bg-center grayscale"
-              style={{
-                backgroundImage: "url('/images/junior_06.jpg')",
-              }}
+            <Image
+              src="/images/junior_06.jpg"
+              alt="Junior Rosa"
+              fill
+              className="object-cover object-center grayscale"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
 

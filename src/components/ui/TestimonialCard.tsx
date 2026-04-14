@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Testimonial } from "@/data/testimonials";
+import Image from "next/image";
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
@@ -27,9 +28,12 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
 
       <div className="flex items-center gap-4 pt-4 border-t border-white/5">
         <div className="w-11 h-11 rounded-full overflow-hidden bg-brand-gray shrink-0 relative ring-2 ring-brand-white/10">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${testimonial.image})` }}
+          <Image
+            src={testimonial.image}
+            alt={testimonial.name}
+            fill
+            className="object-cover object-center"
+            sizes="44px"
           />
         </div>
         <div>

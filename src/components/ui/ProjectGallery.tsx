@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 interface ProjectGalleryProps {
   images: string[];
@@ -60,10 +61,12 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
           transition={{ duration: 0.4 }}
           className="absolute inset-0"
         >
-          <img
+          <Image
             src={encodeURI(images[currentIndex])}
             alt={`Gallery image ${currentIndex + 1}`}
-            className={`w-full h-full object-cover transition-all duration-700 ${
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className={`object-cover transition-all duration-700 ${
               isHovered ? "grayscale-0" : "grayscale"
             }`}
           />

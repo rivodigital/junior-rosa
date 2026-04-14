@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { NAVIGATION_LINKS } from "@/lib/constants";
 import { Menu, X } from "lucide-react";
 
@@ -43,7 +44,7 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px] flex justify-between items-center">
         <a href={homeHref} aria-label="RIVO" className="min-h-[44px] min-w-[44px] flex items-center p-2 -m-2">
-          <img src="/images/logo_clara.png" alt="RIVO" className="h-7 w-auto" />
+          <Image src="/images/logo_clara.png" alt="RIVO" width={120} height={40} className="h-7 w-auto" />
         </a>
 
         {/* Desktop Nav */}
@@ -90,7 +91,7 @@ export function Navbar() {
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="flex justify-between items-center mb-16">
-                <img src="/images/logo_clara.png" alt="RIVO" className="h-7 w-auto" />
+                <Image src="/images/logo_clara.png" alt="RIVO" width={120} height={40} className="h-7 w-auto" />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-brand-white min-h-[44px] min-w-[44px] flex items-center justify-center p-2"

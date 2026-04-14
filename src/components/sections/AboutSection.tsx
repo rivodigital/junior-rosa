@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
+import Image from "next/image";
 
 const CREDENTIALS = [
   { value: "1", label: "PESSOA NO PROJETO" },
@@ -24,11 +25,12 @@ export function AboutSection() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="w-full aspect-[3/4] bg-brand-gray rounded-2xl overflow-hidden relative">
-              <div
-                className="w-full h-full bg-cover bg-center"
-                style={{
-                  backgroundImage: "url('/images/junior_02.jpg')",
-                }}
+              <Image
+                src="/images/junior_02.jpg"
+                alt="Junior Rosa"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </motion.div>
@@ -71,7 +73,7 @@ export function AboutSection() {
             </div>
 
             {/* Credentials */}
-            <div className="flex flex-wrap gap-3 md:gap-6 lg:gap-8 mb-12 pb-12 border-b border-white/5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-6 lg:gap-8 mb-12 pb-12 border-b border-white/5">
               {CREDENTIALS.map((cred, i) => (
                 <motion.div
                   key={cred.label}
@@ -79,7 +81,7 @@ export function AboutSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                  className="bg-brand-white/[0.02] backdrop-blur-md border border-white/[0.04] rounded-xl p-3 md:p-4 flex-1 min-w-[100px] hover:bg-brand-white/[0.04] hover:border-white/[0.06] transition-all duration-500"
+                  className="bg-brand-white/[0.02] backdrop-blur-md border border-white/[0.04] rounded-xl p-3 md:p-4 w-full hover:bg-brand-white/[0.04] hover:border-white/[0.06] transition-all duration-500"
                 >
                   <span className="block text-[24px] sm:text-[28px] md:text-[36px] font-bold text-brand-white mb-1 tracking-tight">
                     {cred.value}

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Project } from "@/data/projects";
+import Image from "next/image";
 import { ProjectGallery } from "./ProjectGallery";
 
 interface ProjectCardProps {
@@ -17,13 +18,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="w-full aspect-[16/10] bg-brand-gray rounded-2xl overflow-hidden relative">
           <div className="absolute inset-0 bg-brand-gray" />
           <motion.div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${project.image})` }}
+            className="absolute inset-0 w-full h-full"
             variants={{
               hover: { scale: 1.06 },
             }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          />
+          >
+            <Image
+              src={project.image}
+              alt={project.name}
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </motion.div>
         </div>
       )}
 

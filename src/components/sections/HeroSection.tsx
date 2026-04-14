@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import Image from "next/image";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 
@@ -323,7 +324,7 @@ export function HeroSection() {
 
           {/* ===== RIGHT: EPIC IMAGE COMPOSITION ===== */}
           <motion.div
-            className="lg:col-span-5 relative w-full h-full flex items-center justify-center mt-12 lg:mt-0"
+            className="lg:col-span-5 relative w-full h-full flex items-center justify-center mt-32 lg:mt-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.3 }}
@@ -338,14 +339,21 @@ export function HeroSection() {
 
             {/* Main Image Frame with parallax */}
             <div className="relative w-full max-w-[450px] lg:max-w-none aspect-[4/5] rounded-[32px] overflow-hidden">
-              <motion.img
-                src="/images/junior_01.jpg"
-                alt="Junior Rosa Profile"
-                className="object-cover w-full h-full"
+              <motion.div
+                className="absolute inset-0 w-full h-full"
                 initial={{ scale: 1.3 }}
                 animate={{ scale: 1.05 }}
                 transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-              />
+              >
+                <Image
+                  src="/images/junior_01.jpg"
+                  alt="Junior Rosa Profile"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90" />
               <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-transparent" />
               <motion.div
@@ -362,7 +370,7 @@ export function HeroSection() {
 
             {/* Floating Glass Badge 1 - with more dramatic movement */}
             <motion.div
-              className="absolute left-2 sm:-left-6 md:-left-14 top-[18%] bg-brand-white/[0.04] border border-brand-white/10 backdrop-blur-2xl py-3 px-4 sm:py-4 sm:px-6 rounded-2xl shadow-2xl"
+              className="absolute z-20 left-1 sm:-left-6 md:-left-14 top-[2%] sm:top-[10%] md:top-[18%] bg-brand-white/[0.04] border border-brand-white/10 backdrop-blur-2xl py-3 px-4 sm:py-4 sm:px-6 rounded-2xl shadow-2xl"
               initial={{ opacity: 0, x: -50, rotateY: -20 }}
               animate={{
                 opacity: 1,
@@ -388,7 +396,7 @@ export function HeroSection() {
 
             {/* Floating Glass Badge 2 */}
             <motion.div
-              className="absolute right-0 md:right-4 bottom-[12%] bg-brand-black/50 border border-brand-white/[0.06] backdrop-blur-2xl py-3 px-4 sm:py-4 sm:px-8 rounded-full shadow-2xl"
+              className="absolute z-20 right-1 sm:right-0 md:right-4 bottom-[4%] sm:bottom-[8%] md:bottom-[12%] bg-brand-black/50 border border-brand-white/[0.06] backdrop-blur-2xl py-3 px-4 sm:py-4 sm:px-8 rounded-full shadow-2xl"
               initial={{ opacity: 0, x: 50, rotateY: 20 }}
               animate={{
                 opacity: 1,

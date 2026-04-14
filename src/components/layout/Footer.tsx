@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { MarqueeStrip } from "./MarqueeStrip";
+import Image from "next/image";
 import { NAVIGATION_LINKS, SITE_CONFIG } from "@/lib/constants";
 
 export function Footer() {
@@ -30,7 +31,7 @@ export function Footer() {
           transition={{ duration: 0.6 }}
         >
           <div className="max-w-[320px]">
-            <img src="/images/logo_clara.png" alt="RIVO" className="h-8 md:h-9 w-auto mb-5" />
+            <Image src="/images/logo_clara.png" alt="RIVO" width={140} height={40} className="h-8 md:h-9 w-auto mb-5" />
             <p className="text-[13px] font-medium leading-[1.8] text-brand-muted">
               Design estratégico e desenvolvimento web para empresas que querem
               dominar o digital. Joinville, SC — atendimento remoto para todo

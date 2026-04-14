@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { BlogPost, BLOG_POSTS } from "@/data/blog-posts";
 import { Button } from "@/components/ui/Button";
 import { SITE_CONFIG } from "@/lib/constants";
+import Image from "next/image";
 
 interface BlogPostViewProps {
   post: BlogPost;
@@ -69,9 +70,13 @@ export function BlogPostView({ post }: BlogPostViewProps) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div
-              className="w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: `url('${encodeURI(post.image)}')` }}
+            <Image
+              src={encodeURI(post.image)}
+              alt={post.title}
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="(max-width: 1200px) 100vw, 1100px"
             />
           </motion.div>
         </div>
@@ -165,9 +170,12 @@ export function BlogPostView({ post }: BlogPostViewProps) {
                   className="group flex flex-col gap-5"
                 >
                   <div className="w-full aspect-[16/10] overflow-hidden rounded-2xl bg-brand-gray">
-                    <div
-                      className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                      style={{ backgroundImage: `url('${encodeURI(p.image)}')` }}
+                    <Image
+                      src={encodeURI(p.image)}
+                      alt={p.title}
+                      fill
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                   <div>
