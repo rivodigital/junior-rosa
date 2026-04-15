@@ -91,7 +91,7 @@ ${details ? `Detalhes: ${details}` : ""}`;
 
   try {
     const { error } = await resend.emails.send({
-      from: "Junior Rosa Site <onboarding@resend.dev>",
+      from: "Junior Rosa <contato@rivos.me>",
       to: [to],
       replyTo: email,
       subject: `Nova solicitação — ${name} (${type})`,
