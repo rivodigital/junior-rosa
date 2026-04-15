@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   name: "RIVO Stúdio",
   author: "Junior Rosa",
-  url: "https://juniorrosa.design",
+  url: "https://www.rivos.me",
   email: "jr@rivos.me",
   whatsapp: "https://wa.me/5547989141011",
   address: "Joinville, Brasil",
