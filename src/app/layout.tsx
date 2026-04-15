@@ -11,7 +11,7 @@ const sora = Sora({
 });
 
 const SITE_URL = SITE_CONFIG.url;
-const OG_IMAGE = "/images/junior_02.jpg";
+const OG_IMAGE = "/images/rivo_seo.jpg";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -63,8 +63,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: OG_IMAGE,
-        width: 2400,
-        height: 1792,
+        width: 1200,
+        height: 630,
         alt: "Junior Rosa — Criação de Sites e Landing Pages",
       },
     ],
