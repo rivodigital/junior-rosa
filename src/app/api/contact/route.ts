@@ -8,6 +8,29 @@ const DEADLINE_LABELS: Record<string, string> = {
   flexivel: "Flexível (3+ meses)",
 };
 
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
+const RATE_LIMIT_MAX = 5;
+const rateLimitStore = new Map<string, number[]>();
+
+function getClientIp(request: Request): string {
+  const fwd = request.headers.get("x-forwarded-for");
+  if (fwd) return fwd.split(",")[0].trim();
+  return request.headers.get("x-real-ip") || "unknown";
+}
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const windowStart = now - RATE_LIMIT_WINDOW_MS;
+  const hits = (rateLimitStore.get(ip) || []).filter((t) => t > windowStart);
+  if (hits.length >= RATE_LIMIT_MAX) {
+    rateLimitStore.set(ip, hits);
+    return false;
+  }
+  hits.push(now);
+  rateLimitStore.set(ip, hits);
+  return true;
+}
+
 function escapeHtml(str: string) {
   return str
     .replace(/&/g, "&amp;")
@@ -28,11 +51,23 @@ export async function POST(request: Request) {
     );
   }
 
+  const ip = getClientIp(request);
+  if (!checkRateLimit(ip)) {
+    return Response.json(
+      { error: "Muitas solicitações. Tente novamente mais tarde." },
+      { status: 429 }
+    );
+  }
+
   let body: Record<string, string>;
   try {
     body = await request.json();
   } catch {
     return Response.json({ error: "Payload inválido." }, { status: 400 });
+  }
+
+  if ((body.website || "").trim() !== "") {
+    return Response.json({ ok: true });
   }
 
   const type = (body.type || "").trim();

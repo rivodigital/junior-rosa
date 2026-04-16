@@ -7,9 +7,10 @@ import Image from "next/image";
 
 interface ProjectGalleryProps {
   images: string[];
+  projectName?: string;
 }
 
-export function ProjectGallery({ images }: ProjectGalleryProps) {
+export function ProjectGallery({ images, projectName }: ProjectGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const touchStartX = useRef(0);
@@ -63,7 +64,11 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
         >
           <Image
             src={encodeURI(images[currentIndex])}
-            alt={`Gallery image ${currentIndex + 1}`}
+            alt={
+              projectName
+                ? `${projectName} — imagem ${currentIndex + 1} de ${images.length}`
+                : `Imagem ${currentIndex + 1} de ${images.length}`
+            }
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className={`object-cover transition-all duration-700 ${

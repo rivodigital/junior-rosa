@@ -13,7 +13,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="group flex flex-col gap-5 relative">
       {project.gallery ? (
-        <ProjectGallery images={project.gallery}/>
+        <ProjectGallery images={project.gallery} projectName={project.name}/>
       ) : (
         <div className="w-full aspect-[16/10] bg-brand-gray rounded-2xl overflow-hidden relative">
           <div className="absolute inset-0 bg-brand-gray" />

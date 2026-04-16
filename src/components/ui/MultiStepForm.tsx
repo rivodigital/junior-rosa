@@ -22,6 +22,7 @@ export function MultiStepForm() {
     name: "",
     email: "",
     whatsapp: "",
+    website: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -47,7 +48,7 @@ export function MultiStepForm() {
       setSubmitted(true);
       setStep(1);
       setFormData({
-        type: "", objective: "", deadline: "", details: "", name: "", email: "", whatsapp: ""
+        type: "", objective: "", deadline: "", details: "", name: "", email: "", whatsapp: "", website: ""
       });
       setTimeout(() => setSubmitted(false), 5000);
     } catch (err) {
@@ -83,6 +84,19 @@ export function MultiStepForm() {
       </div>
 
       <form onSubmit={step === 3 ? submitForm : (e) => { e.preventDefault(); nextStep(); }} className="flex-grow flex flex-col">
+        <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", top: "auto", width: 1, height: 1, overflow: "hidden" }}>
+          <label>
+            Não preencha este campo se for humano:
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              value={formData.website}
+              onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+            />
+          </label>
+        </div>
         {step === 1 && (
           <div className="flex-grow space-y-6 animate-in fade-in zoom-in-95 duration-300">
             <h3 className="text-xl md:text-3xl font-bold text-brand-white mb-6">Qual o tipo do seu projeto?</h3>
