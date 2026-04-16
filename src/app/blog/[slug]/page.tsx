@@ -115,7 +115,7 @@ export default async function BlogPostPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Navbar />
-      <main className="flex-grow flex flex-col w-full bg-brand-black text-brand-white selection:bg-brand-white selection:text-brand-black">
+      <main id="main-content" className="flex-grow flex flex-col w-full bg-brand-black text-brand-white selection:bg-brand-white selection:text-brand-black">
         <BlogPostView post={post} />
       </main>
       <Footer />

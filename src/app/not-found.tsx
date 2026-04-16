@@ -11,7 +11,7 @@ export default function NotFound() {
   return (
     <>
       <Navbar />
-      <main className="flex-grow flex items-center justify-center min-h-[80vh] bg-brand-black px-6">
+      <main id="main-content" className="flex-grow flex items-center justify-center min-h-[80vh] bg-brand-black px-6">
         <div className="max-w-[560px] w-full text-center">
           <p className="text-[12px] uppercase tracking-[0.3em] text-brand-muted mb-6">
             Erro 404

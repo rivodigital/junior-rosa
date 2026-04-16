@@ -145,6 +145,12 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-brand-black text-brand-white overflow-x-hidden">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-brand-white focus:text-brand-black focus:px-5 focus:py-3 focus:rounded-lg focus:font-bold focus:text-[13px] focus:uppercase focus:tracking-[0.08em] focus:outline-none focus:ring-2 focus:ring-brand-white focus:ring-offset-2 focus:ring-offset-brand-black"
+        >
+          Pular para o conteúdo
+        </a>
         {children}
       </body>
     </html>

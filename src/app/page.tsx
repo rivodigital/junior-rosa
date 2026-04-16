@@ -68,7 +68,7 @@ export default function Home() {
     <>
       <Navbar />
 
-      <main className="flex-grow flex flex-col w-full selection:bg-brand-white selection:text-brand-black">
+      <main id="main-content" className="flex-grow flex flex-col w-full selection:bg-brand-white selection:text-brand-black">
         <HeroSection />
 
         <MarqueeStrip
