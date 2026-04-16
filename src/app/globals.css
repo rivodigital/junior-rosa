@@ -73,6 +73,26 @@ body {
   }
 }
 
+/* ===== REVEAL (IntersectionObserver-based, replaces Framer whileInView) ===== */
+.reveal {
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Initial hidden states */
+.reveal-fadeUp   { opacity: 0; transform: translateY(40px); }
+.reveal-fadeLeft { opacity: 0; transform: translateX(-20px); }
+.reveal-fadeRight{ opacity: 0; transform: translateX(20px); }
+.reveal-fade     { opacity: 0; transform: none; }
+.reveal-scaleIn  { opacity: 0; transform: scale(0.95); }
+
+/* Visible state — applied by IntersectionObserver */
+.reveal-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

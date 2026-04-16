@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { BlogCard } from "@/components/ui/BlogCard";
 import { BLOG_POSTS } from "@/data/blog-posts";
@@ -9,12 +7,10 @@ export function BlogSection() {
   return (
     <section id="blog" className="py-16 md:py-24 lg:py-40 bg-brand-black">
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
-        <motion.div
+        <Reveal
+          variant="fadeUp"
+          margin="-80px"
           className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <div>
             <SectionLabel>08 — Conteúdo</SectionLabel>
@@ -24,23 +20,18 @@ export function BlogSection() {
               <span className="text-brand-muted">entenda o jogo.</span>
             </h2>
           </div>
-        </motion.div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
           {BLOG_POSTS.map((post, index) => (
-            <motion.div
+            <Reveal
               key={post.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                duration: 0.6,
-                delay: 0.1 * index,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+              variant="fadeUp"
+              delay={index * 100}
+              margin="-50px"
             >
               <BlogCard post={post} />
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>

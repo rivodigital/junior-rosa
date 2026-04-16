@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Project } from "@/data/projects";
 import Image from "next/image";
 import { ProjectGallery } from "./ProjectGallery";
@@ -17,13 +14,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       ) : (
         <div className="w-full aspect-[16/10] bg-brand-gray rounded-2xl overflow-hidden relative">
           <div className="absolute inset-0 bg-brand-gray" />
-          <motion.div
-            className="absolute inset-0 w-full h-full"
-            variants={{
-              hover: { scale: 1.06 },
-            }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
+          <div className="absolute inset-0 w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]">
             <Image
               src={project.image}
               alt={project.name}
@@ -31,7 +22,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-          </motion.div>
+          </div>
         </div>
       )}
 

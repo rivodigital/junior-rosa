@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { Reveal } from "@/components/ui/Reveal";
 import { MarqueeStrip } from "./MarqueeStrip";
 import Image from "next/image";
 import { NAVIGATION_LINKS, SITE_CONFIG } from "@/lib/constants";
@@ -23,12 +23,10 @@ export function Footer() {
       </div>
 
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px] py-12 md:py-16 lg:py-24 flex flex-col gap-12 md:gap-16 lg:gap-20">
-        <motion.div
+        <Reveal
+          variant="fadeUp"
+          margin="0px"
           className="flex flex-col md:flex-row justify-between gap-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
         >
           <div className="max-w-[320px]">
             <Image src="/images/logo_clara.png" alt="RIVO" width={140} height={40} className="h-8 md:h-9 w-auto mb-5" />
@@ -98,7 +96,7 @@ export function Footer() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </Reveal>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-brand-accent/5 gap-4">
           <p className="text-[12px] text-brand-muted text-center md:text-left">

@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
@@ -17,12 +15,10 @@ export function AboutSection() {
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20 items-center">
           {/* Image */}
-          <motion.div
+          <Reveal
+            variant="fadeLeft"
+            margin="-80px"
             className="md:col-span-5 md:order-1 order-2"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="w-full aspect-[3/4] bg-brand-gray rounded-2xl overflow-hidden relative">
               <Image
@@ -33,15 +29,13 @@ export function AboutSection() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-          </motion.div>
+          </Reveal>
 
           {/* Content */}
-          <motion.div
+          <Reveal
+            variant="fadeUp"
+            margin="-80px"
             className="md:col-span-7 md:order-2 order-1"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <SectionLabel>05 — Quem está por trás</SectionLabel>
             <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] font-bold tracking-tight mb-8 leading-[1.05] text-brand-white">
@@ -75,12 +69,11 @@ export function AboutSection() {
             {/* Credentials */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-6 lg:gap-8 mb-12 pb-12 border-b border-white/5">
               {CREDENTIALS.map((cred, i) => (
-                <motion.div
+                <Reveal
                   key={cred.label}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                  variant="fadeUp"
+                  delay={300 + i * 100}
+                  margin="-20px"
                   className="bg-brand-white/[0.02] backdrop-blur-md border border-white/[0.04] rounded-xl p-3 md:p-4 w-full hover:bg-brand-white/[0.04] hover:border-white/[0.06] transition-all duration-500"
                 >
                   <span className="block text-[24px] sm:text-[28px] md:text-[36px] font-bold text-brand-white mb-1 tracking-tight">
@@ -89,14 +82,14 @@ export function AboutSection() {
                   <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] text-brand-muted font-medium">
                     {cred.label}
                   </span>
-                </motion.div>
+                </Reveal>
               ))}
             </div>
 
             <Button variant="link" href="#contato">
               Iniciar um projeto comigo
             </Button>
-          </motion.div>
+          </Reveal>
         </div>
       </div>
     </section>

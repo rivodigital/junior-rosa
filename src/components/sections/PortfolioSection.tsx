@@ -1,7 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { Reveal } from "@/components/ui/Reveal";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 
 import { PROJECTS } from "@/data/projects";
@@ -10,11 +8,9 @@ export function PortfolioSection() {
   return (
     <section id="portfolio" className="py-16 md:py-24 lg:py-40 bg-brand-black border-t border-white/[0.06]">
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        <Reveal
+          variant="fadeUp"
+          margin="-80px"
           className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-20"
         >
           <div>
@@ -29,27 +25,20 @@ export function PortfolioSection() {
             Cada projeto abaixo gerou impacto real no faturamento, posicionamento
             ou autoridade do cliente.
           </p>
-        </motion.div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 mb-16">
           {PROJECTS.map((project, index) => (
-            <motion.div
+            <Reveal
               key={project.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{
-                duration: 0.7,
-                delay: index * 0.12,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+              variant="fadeUp"
+              delay={index * 120}
+              margin="-60px"
             >
               <ProjectCard project={project} />
-            </motion.div>
+            </Reveal>
           ))}
         </div>
-
-
       </div>
     </section>
   );

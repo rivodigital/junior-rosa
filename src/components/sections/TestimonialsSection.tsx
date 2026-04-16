@@ -1,7 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { Reveal } from "@/components/ui/Reveal";
 import { TestimonialCard } from "@/components/ui/TestimonialCard";
 import { TESTIMONIALS } from "@/data/testimonials";
 
@@ -12,12 +10,10 @@ export function TestimonialsSection() {
       className="py-16 md:py-24 lg:py-40 bg-brand-gray border-y border-white/5"
     >
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
-        <motion.div
+        <Reveal
+          variant="fadeUp"
+          margin="-80px"
           className="mb-16 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <div>
             <SectionLabel>07 — Prova social</SectionLabel>
@@ -32,23 +28,18 @@ export function TestimonialsSection() {
           <p className="text-brand-muted text-base md:text-lg max-w-[360px] leading-relaxed">
             O que clientes reais dizem sobre o impacto no negócio deles.
           </p>
-        </motion.div>
+        </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           {TESTIMONIALS.map((testimonial, index) => (
-            <motion.div
+            <Reveal
               key={testimonial.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                duration: 0.6,
-                delay: 0.1 * index,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+              variant="fadeUp"
+              delay={index * 100}
+              margin="-50px"
             >
               <TestimonialCard testimonial={testimonial} />
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>

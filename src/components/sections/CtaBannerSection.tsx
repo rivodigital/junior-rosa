@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/constants";
@@ -13,12 +11,10 @@ export function CtaBannerSection() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-white/[0.02] rounded-full blur-[200px] pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px] relative z-10">
-        <motion.div
+        <Reveal
+          variant="fadeUp"
+          margin="-80px"
           className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="w-full h-[180px] md:h-auto md:block md:aspect-[3/4] bg-brand-gray rounded-2xl overflow-hidden relative">
             <Image
@@ -31,16 +27,12 @@ export function CtaBannerSection() {
           </div>
 
           <div className="space-y-8">
-            <motion.h2
-              className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] font-bold leading-[1.05] tracking-tight text-brand-white"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Enquanto você pensa, seu concorrente{" "}
-              <span className="text-brand-muted">já contratou.</span>
-            </motion.h2>
+            <Reveal variant="fadeUp" delay={100} className="">
+              <h2 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] font-bold leading-[1.05] tracking-tight text-brand-white">
+                Enquanto você pensa, seu concorrente{" "}
+                <span className="text-brand-muted">já contratou.</span>
+              </h2>
+            </Reveal>
 
             <p className="text-brand-muted text-lg leading-relaxed max-w-[450px]">
               Preencha o briefing em 2 minutos. Receba uma proposta personalizada em até 24h. Sem compromisso.
@@ -70,7 +62,7 @@ export function CtaBannerSection() {
               </Button>
             </div>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );
