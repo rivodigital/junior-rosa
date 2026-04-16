@@ -133,6 +133,14 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${sora.variable} h-full antialiased dark`}>
       <head>
         <meta name="theme-color" content="#0A0A0A" />
+        {/* Preload LCP image — reduce render delay flagged by Lighthouse */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/junior_01.jpg"
+          fetchPriority="high"
+          type="image/jpeg"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}

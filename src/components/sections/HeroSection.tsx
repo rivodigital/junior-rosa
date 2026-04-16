@@ -1,20 +1,14 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 
 const TAGS = ["Landing Pages", "Sites Institucionais", "E-commerces", "Branding"];
 
-const clipReveal = {
-  hidden: { clipPath: "inset(100% 0 0 0)" },
-  show: {
-    clipPath: "inset(0% 0 0 0)",
-    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as const },
-  },
-};
+
 
 const slideUp = {
   hidden: { y: 80, opacity: 0 },
@@ -34,19 +28,9 @@ const stagger = {
 };
 
 export function HeroSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  const textY = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const opacityOut = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
     <section
-      ref={sectionRef}
       className="relative min-h-screen w-full flex items-center bg-brand-black overflow-hidden"
     >
       {/* ===== CSS-ONLY BACKGROUND (no JS animation overhead) ===== */}
@@ -77,10 +61,7 @@ export function HeroSection() {
       </div>
 
       {/* ===== MAIN CONTENT ===== */}
-      <motion.div
-        className="container relative z-10 mx-auto px-6 md:px-12 max-w-[1400px]"
-        style={{ y: textY, opacity: opacityOut }}
-      >
+      <div className="container relative z-10 mx-auto px-6 md:px-12 max-w-[1400px]">
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[85dvh]">
           {/* ===== LEFT: TYPOGRAPHY ===== */}
           <motion.div
@@ -100,7 +81,7 @@ export function HeroSection() {
             {/* Main headline */}
             <div className="overflow-hidden mb-6 max-w-[640px]">
               <motion.h1
-                variants={clipReveal}
+                variants={slideUp}
                 className="text-[clamp(34px,4.4vw,60px)] font-semibold leading-[1.05] tracking-[-0.025em] text-brand-white"
               >
                 Sites e landing pages que geram{" "}
@@ -187,6 +168,7 @@ export function HeroSection() {
                 alt="Junior Rosa Profile"
                 fill
                 priority
+                fetchPriority="high"
                 sizes="(max-width: 1024px) 100vw, 450px"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/2wBDABYWFhYWFiYWFiY2JiYmNkk2NjY2SVxJSUlJSVxvXFxcXFxcb29vb29vb2+Ghoamp6etra25ubn/2wBDARsdHS0pLUwpKUy3fGZ8t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7f/wAARCAAQAAwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9sAQwAWFhYWFhYmFhYmNiYmJjZJNjY2NklcSUlJSUlcb1xcXFxcXG9vb29vb29vhoaGhoaGnJycnJyvr6+vr6+vr6+v/9sAQwEbHR0tKS1MKSlMt3xmfLe3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3/90ABAAB/9oADAMBAAIRAxEAPwDEtY4zZyMY97nv6D1rMPWrMc5SExrnc3B+lVqAP//Z"
@@ -227,7 +209,7 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
 
       {/* ===== SCROLL INDICATOR ===== */}
       <motion.div
